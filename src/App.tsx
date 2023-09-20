@@ -1,8 +1,11 @@
 import React from 'react';
+import Start from './components/Start';
 
 function App() {
   return (
-    <div></div>
+    // <main className={styles.wrapper}>
+      <Start/>
+    // </main>
   );
 }
 

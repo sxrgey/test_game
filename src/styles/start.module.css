@@ -1,0 +1,36 @@
+
+.form {
+  display: flex;
+  width: 50vh;
+  height: 50vh;
+  min-width: 300px;
+  min-height: 300px;
+  background-color: rgba(36, 29, 99, 0.904);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 1vh;
+}
+
+.caption {
+  font-size: 4vh;
+  margin-bottom: 2vh;
+  color: rgb(74, 110, 221);
+}
+
+.button {
+  width: 70%;
+  height: 20%;
+  background-color: rgb(84, 0, 36);
+  color: rgb(221, 161, 180);
+  border-radius: 1vh;
+  border: 0;
+  font-size: 2vh;
+  margin: 2vh;
+  transition: 300ms;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
