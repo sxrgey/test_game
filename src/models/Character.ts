@@ -1,4 +1,9 @@
-export interface Parametrs {
+export interface IAction {
+  type: string;
+  payload: any;
+}
+
+export interface IParametrs {
   strength: number; // сила
   agility: number; // ловкость
   intelligence: number; // интелект
@@ -8,7 +13,7 @@ export interface Parametrs {
   vigor?: number; // энергичность
 }
 
-export interface Skills {  
+export interface ISkills {  
   attack: number; // атака
   stealth: number; // стелс
   archery: number; // стрельба из лука
@@ -21,14 +26,20 @@ export interface Skills {
   manipulation: number; // манипулирование 
 }
 
+export interface ICharacter {
+  name: string;
+  parametrs: IParametrs;
+  skills: ISkills;
+}
+
 
 export class Character {
 
   private name: string;
-  private parametrs: Parametrs;
-  private skiils: Skills;
+  private parametrs: IParametrs;
+  private skiils: ISkills;
 
-  constructor(name: string, parametrs: Parametrs) {
+  constructor(name: string, parametrs: IParametrs) {
     this.name = name;
     this.parametrs = parametrs;
     this.parametrs.vitality = 3 + this.parametrs.strength;
@@ -47,6 +58,22 @@ export class Character {
       appearance: 0,
       manipulation: 0,
     }
+  }
+
+  public setCharacter(character: ICharacter): void {
+    this.name = character.name;
+    this.parametrs = {...character.parametrs};
+    this.skiils = {...character.skills};
+  }
+
+  public getICharacter(): ICharacter {
+    let character: ICharacter = {
+      name: this.name,
+      parametrs: {...this.parametrs},
+      skills: {...this.skiils}
+    };
+
+    return character;
   }
 
   //Сетеры задаваемых полей

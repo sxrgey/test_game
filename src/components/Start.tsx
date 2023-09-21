@@ -1,28 +1,24 @@
 import React from 'react';
 import styles from '../styles/start.module.css';
-import { Character } from '../classes/Character';
-import { Parametrs } from '../classes/Character';
+import { useNavigate } from "react-router-dom";
 
 export interface IStartProps {
 }
 
-const handleClick = () => {
-  // window.location.assign('/character');
-}
-
 export default function Start(props: IStartProps) {
+  const navigate = useNavigate();
   return (
       <div className={styles.wrapper}>
         <h1 className={styles.caption}>Character Editor</h1>
         <button
         className={styles.button}
-        onClick={() => window.location.assign('/creator')}
+        onClick={() => navigate('/creator')}
         >
           Создать персонажа
         </button>
         <button
           className={styles.button}
-          onClick={handleClick}
+          onClick={() => navigate('/importer')}
         >
           Импортировать персонажа
         </button>

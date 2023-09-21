@@ -14,7 +14,6 @@
   width: 100%;
   height: 35%;
   align-items: center;
-  /* background-color: rgba(31, 11, 213, 0.904); */
 }
 
 .half_head {
@@ -61,8 +60,6 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  /* width: 100%;
-  height: 100%; */
   justify-content: space-around;
   align-items: center;
   border: solid 0.5vh rgb(84, 0, 36);
@@ -73,11 +70,9 @@
   font-size: 1.8vh;
   color: rgb(177, 94, 126);
   text-align: center;
-  /* padding-left: 2vh; */
-  /* margin-right: 4vh; */
 }
 
-.train {
+.train_button {
   width: 40%;
   height: 40%;
   background-color: rgb(84, 0, 36);
@@ -88,7 +83,68 @@
   transition: 300ms;
 }
 
-.train:hover {
+.train_button:hover {
   transform: scale(1.05);
 }
+
+.buttons {
+  display: flex;
+  width: 100%;
+  height: 10%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.change_button {
+  width: 20%;
+  height: 70%;
+  background-color: rgb(27, 2, 59);
+  color: rgb(177, 161, 221);
+  border-radius: 1vh;
+  border: solid rgb(177, 161, 221) 0.3vh;
+  font-size: 1.5vh;
+  transition: 300ms;
+}
+
+.change_button:hover {
+  transform: scale(1.05);
+}
+
+.export_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 70%;
+  background-color: rgb(27, 2, 59);
+  color: rgb(177, 161, 221);
+  border-radius: 1vh;
+  border: solid rgb(177, 161, 221) 0.3vh;
+  font-size: 1.5vh;
+  transition: 300ms;
+  text-decoration: none;
+  text-align: center;
+}
+
+.export_button:hover {
+  transform: scale(1.05);
+}
+
+.kick_button {
+  width: 20%;
+  height: 70%;
+  background-color: rgb(84, 0, 36);
+  color: rgb(221, 161, 180);
+  border-radius: 1vh;
+  border: solid rgb(221, 161, 180) 0.3vh;
+  font-size: 1.5vh;
+  transition: 300ms;
+}
+
+.kick_button:hover {
+  transform: scale(1.05);
+}
+
+
+
 
