@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import styles from '../styles/character.module.css'
 import { useSelector } from 'react-redux'
 import { ICharacter } from "../models/Character"
-import { characterSelector } from "../characterSelectors";
+import { characterSelector } from "../store/characterSelectors";
 import { useNavigate } from "react-router-dom";
 
 const grade_skills = ['Нетренированный', 'Новичок', 'Ученик', 'Адепт', 'Эксперт', 'Мастер', 'Достигнут максимальный уровень!'];

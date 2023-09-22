@@ -1,5 +1,5 @@
 import { createStore } from "redux";
-import { Character, IParametrs, ICharacter, IAction } from "./models/Character";
+import { Character, IParametrs, ICharacter, IAction } from "../models/Character";
 
 const defaultParametrs: IParametrs = {
   strength: 0,

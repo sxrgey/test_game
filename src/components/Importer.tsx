@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import styles from '../styles/importer.module.css';
 import { useNavigate } from "react-router-dom";
-import { characterSelector } from "../characterSelectors";
+import { characterSelector } from "../store/characterSelectors";
 import { useDispatch, useSelector } from 'react-redux';
 import { ICharacter } from "../models/Character";
 

@@ -164,6 +164,4 @@ export class Character {
     }
   }
 
-
-
 }

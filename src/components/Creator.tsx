@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux/es/hooks/useDispatch"
 import { Character } from '../models/Character';
 import { useSelector } from 'react-redux'
 import { useNavigate } from "react-router-dom";
-import { characterSelector } from "../characterSelectors";
+import { characterSelector } from "../store/characterSelectors";
 
 
 
