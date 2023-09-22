@@ -5,12 +5,12 @@ import { ICharacter } from "../models/Character"
 import { characterSelector } from "../characterSelectors";
 import { useNavigate } from "react-router-dom";
 
-const grade_skills = ['Нетренированный', 'Новичок', 'Ученик', 'Адепт','Эксперт', 'Мастер', 'Достигнут максимальный уровень!'];
+const grade_skills = ['Нетренированный', 'Новичок', 'Ученик', 'Адепт', 'Эксперт', 'Мастер', 'Достигнут максимальный уровень!'];
 
 export interface ICharacterProps {
 }
 
-export function Character (props: ICharacterProps) {
+export function Character(props: ICharacterProps) {
   const state = useSelector(characterSelector);
   const [character, setCharacter] = useState(state);
   const [handleClickTrainIsWorking, setHandleClickTrainIsWorking] = useState(false);
@@ -20,26 +20,26 @@ export function Character (props: ICharacterProps) {
 
   const handleClickTrain = (event: any) => {
     if (!handleClickTrainIsWorking) {
-      const new_skills = {...character.skills};
+      const new_skills = { ...character.skills };
       if (new_skills[event.target.id] < 5) {
         new_skills[event.target.id]++;
       } else {
         new_skills[event.target.id] = 6;
-        setCharacter((prev:ICharacter) => ({...prev, skills: new_skills}));
+        setCharacter((prev: ICharacter) => ({ ...prev, skills: new_skills }));
         setHandleClickTrainIsWorking(true);
         setTimeout(() => {
           new_skills[event.target.id] = 5;
-          setCharacter((prev:ICharacter) => ({...prev, skills: new_skills}));
+          setCharacter((prev: ICharacter) => ({ ...prev, skills: new_skills }));
           setHandleClickTrainIsWorking(false);
         }, 1000);
       }
-      setCharacter((prev:ICharacter) => ({...prev, skills: new_skills}));
-      }
+      setCharacter((prev: ICharacter) => ({ ...prev, skills: new_skills }));
+    }
   }
 
   const handleClickKick = () => {
     if (character.parametrs.vitality > 0) {
-      setCharacter((prev:ICharacter) => ({...prev, parametrs: {...prev.parametrs, vitality: prev.parametrs.vitality ? prev.parametrs.vitality-1 : 0} }));
+      setCharacter((prev: ICharacter) => ({ ...prev, parametrs: { ...prev.parametrs, vitality: prev.parametrs.vitality ? prev.parametrs.vitality - 1 : 0 } }));
       setScaleAvatar(0.9);
       setTimeout(() => {
         setScaleAvatar(1);
@@ -48,11 +48,11 @@ export function Character (props: ICharacterProps) {
   }
 
   return (
-    <div  className={styles.wrapper}>
+    <div className={styles.wrapper}>
 
       <section className={styles.head}>
         <div className={styles.half_head}>
-          <img  style={{transform: `scale(${scaleAvatar})`}} className={styles.image} src='https://papik.pro/grafic/uploads/posts/2023-04/1682551474_papik-pro-p-smail-ritsar-png-4.png' alt ='avatar'/>
+          <img style={{ transform: `scale(${scaleAvatar})` }} className={styles.image} src='https://papik.pro/grafic/uploads/posts/2023-04/1682551474_papik-pro-p-smail-ritsar-png-4.png' alt='avatar' />
         </div>
         <div className={styles.half_head}>
           <h2 className={styles.name}>{character.name}</h2>
@@ -112,16 +112,16 @@ export function Character (props: ICharacterProps) {
       </section>
 
       <section className={styles.buttons}>
-        <button className={styles.change_button} onClick={() => {navigate('/editor')}}>Изменить персонажа</button>
+        <button className={styles.change_button} onClick={() => { navigate('/editor') }}>Изменить персонажа</button>
         {/* <button className={styles.change_button} onClick={testFunction}>Экспортировать персонажа</button> */}
-        <a  
+        <a
           className={styles.export_button}
           href={`data:text/json;charset=utf-8,${encodeURIComponent(
             JSON.stringify(state)
           )}`}
           download={`${character.name}.json`}
         >
-        Экспортировать персонажа
+          Экспортировать персонажа
         </a>
         <button className={styles.kick_button} onClick={handleClickKick}>Ударить персонажа</button>
       </section>

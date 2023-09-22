@@ -5,11 +5,10 @@ import { characterSelector } from "../characterSelectors";
 import { useDispatch, useSelector } from 'react-redux';
 import { ICharacter } from "../models/Character";
 
-
 export interface IImporterProps {
 }
 
-export function Importer (props: IImporterProps) {
+export function Importer(props: IImporterProps) {
   const state = useSelector(characterSelector);
   let character = useRef<ICharacter>(state);
 
@@ -21,10 +20,10 @@ export function Importer (props: IImporterProps) {
     reader.onload = () => {
       if (reader.result) {
         const res = JSON.parse(String(reader.result));
-        character.current = {...res};
-        dispatch({type:"character/set/name", payload: character.current.name});
-        dispatch({type:"character/set/parametrs", payload: character.current.parametrs});
-        dispatch({type:"character/set/skills", payload: character.current.skills});
+        character.current = { ...res };
+        dispatch({ type: "character/set/name", payload: character.current.name });
+        dispatch({ type: "character/set/parametrs", payload: character.current.parametrs });
+        dispatch({ type: "character/set/skills", payload: character.current.skills });
         navigate('/character');
       }
     };
@@ -35,7 +34,7 @@ export function Importer (props: IImporterProps) {
       <h1 className={styles.caption}>Character Importer</h1>
 
       <label className={styles.label_input}>
-        <input type="file" accept=".json,application/json" className={styles.input} id="fileInput" onChange={loadCharacter}/>
+        <input type="file" accept=".json,application/json" className={styles.input} id="fileInput" onChange={loadCharacter} />
         Выберите файл
       </label>
     </div>
